@@ -1,0 +1,23 @@
+<po-page-default [p-title]="title">
+  <po-dynamic-form #dynamicForm
+    [p-fields]="fields"
+    [p-value]="customerValues">
+  </po-dynamic-form>
+
+  <div class="thf-row">
+    <po-button
+      class="thf-md-3"
+      *ngIf="!this.customerId"
+      p-label="Inserir"
+      [p-disabled]="dynamicForm?.form.invalid"
+      (p-click)="insertCustomer()">
+    </po-button>
+
+    <po-button
+      *ngIf="this.customerId"
+      class="thf-md-3"
+      p-label="Atualizar"
+      (p-click)="updateCustomer()">
+    </po-button>
+  </div>
+</po-page-default>
